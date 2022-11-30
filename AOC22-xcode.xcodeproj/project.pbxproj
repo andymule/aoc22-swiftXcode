@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41D3ADFD2937EBD200C99DDC /* day2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41D3ADFC2937EBD200C99DDC /* day2.txt */; };
 		41FC1A7B2937124E00101C2C /* AOC22_xcodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC1A7A2937124E00101C2C /* AOC22_xcodeApp.swift */; };
 		41FC1A7D2937124E00101C2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC1A7C2937124E00101C2C /* ContentView.swift */; };
 		41FC1A7F2937124F00101C2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41FC1A7E2937124F00101C2C /* Assets.xcassets */; };
@@ -20,15 +21,20 @@
 		41FC1A9A2937156F00101C2C /* RealModule in Frameworks */ = {isa = PBXBuildFile; productRef = 41FC1A992937156F00101C2C /* RealModule */; };
 		41FC1A9D293715EE00101C2C /* SwiftGraph in Frameworks */ = {isa = PBXBuildFile; productRef = 41FC1A9C293715EE00101C2C /* SwiftGraph */; };
 		41FC1A9F2937BB0400101C2C /* day1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41FC1A9E2937BB0400101C2C /* day1.txt */; };
+		41FCC7002937FBFC007964B0 /* day3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41FCC6FF2937FBFC007964B0 /* day3.txt */; };
+		41FCC70229380982007964B0 /* day4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41FCC70129380982007964B0 /* day4.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41D3ADFC2937EBD200C99DDC /* day2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day2.txt; sourceTree = "<group>"; };
 		41FC1A772937124E00101C2C /* AOC22-xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AOC22-xcode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FC1A7A2937124E00101C2C /* AOC22_xcodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOC22_xcodeApp.swift; sourceTree = "<group>"; };
 		41FC1A7C2937124E00101C2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		41FC1A7E2937124F00101C2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41FC1A812937124F00101C2C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		41FC1A9E2937BB0400101C2C /* day1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day1.txt; sourceTree = "<group>"; };
+		41FCC6FF2937FBFC007964B0 /* day3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day3.txt; sourceTree = "<group>"; };
+		41FCC70129380982007964B0 /* day4.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day4.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +95,10 @@
 		41FC1AA02937BB1D00101C2C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				41D3ADFC2937EBD200C99DDC /* day2.txt */,
 				41FC1A9E2937BB0400101C2C /* day1.txt */,
+				41FCC6FF2937FBFC007964B0 /* day3.txt */,
+				41FCC70129380982007964B0 /* day4.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -170,7 +179,10 @@
 			files = (
 				41FC1A822937124F00101C2C /* Preview Assets.xcassets in Resources */,
 				41FC1A9F2937BB0400101C2C /* day1.txt in Resources */,
+				41D3ADFD2937EBD200C99DDC /* day2.txt in Resources */,
 				41FC1A7F2937124F00101C2C /* Assets.xcassets in Resources */,
+				41FCC70229380982007964B0 /* day4.txt in Resources */,
+				41FCC7002937FBFC007964B0 /* day3.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

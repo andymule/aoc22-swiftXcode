@@ -3,9 +3,10 @@ import SwiftGraph
 
 extension Mine {
     func run() {
-        loadInput("day1")
-        pr("testing")
+        loadInput("day4")
+        
     }
+
 }
 
 struct ContentView: View {
@@ -55,3 +56,6 @@ extension View {
         return self
     }
 }
+
+// split into tokens, parse into things
+// let items = lines[i].components(separatedBy: CharacterSet(charactersIn: " \t")).compactMap { Int($0) }
