@@ -1,18 +1,17 @@
-import SwiftUI
 import SwiftGraph
+import SwiftUI
 import TextView
 
 extension Mine {
     func run() {
         loadInput("day2")
-        for a in 0...10 {
+        for a in 0 ... 14 {
             pr(a)
         }
         pr("asdssss")
-        
-        copyout(1+234) // only outputs when a line in changed in xcode, but is selectable in preview
+//        copyout(1 + 2) // only outputs when a line in changed in xcode, but is selectable in preview
     }
-    //Day1()
+    // Day1()
 }
 
 struct ContentView: View {
@@ -20,15 +19,16 @@ struct ContentView: View {
     init() {
         mine.run()
     }
+
     @State private var output: String = ""
     @State private var isSelected = false
     var body: some View {
         VStack {
             Text(mine.str).textSelection(.enabled)
-            TextView($output).font(.title2).fontWeight(.bold)
-                .onAppear { // onAppear needs line change in code to work
-                    output = mine.copyablestr
-                }
+//            TextView($output).font(.title2).fontWeight(.bold)
+//                .onAppear { // onAppear needs line change in code to work
+//                    output = mine.copyablestr
+//                }
 //            SelectableText(text: output, isSelected: self.$isSelected)
 //                .onTapGesture {
 //                     self.isSelected.toggle()
@@ -52,13 +52,15 @@ class Mine {
     // FAST output, always works as expected, NOT selectable in preview
     func pr(_ str: Any) {
         self.str += "\n" + "\(str)"
+        self.str = self.str.trimmingCharacters(in: .whitespacesAndNewlines)
     }
-    
-    // text-copyable string
-    // only outputs when a line in changed in xcode, but is selectable in preview
-    func copyout(_ str: Any) {
-        self.copyablestr += "\n" + "\(str)"
-    }
+
+//    // text-copyable string
+//    // only outputs when a line in changed in xcode, but is selectable in preview
+//    func copyout(_ str: Any) {
+//        copyablestr += "\n" + "\(str)"
+//        copyablestr = copyablestr.trimmingCharacters(in: .whitespacesAndNewlines)
+//    }
 
     func loadInput(_ inputName: String) {
         if let filepath = Bundle.main.path(forResource: inputName, ofType: "txt") {
@@ -67,8 +69,9 @@ class Mine {
             pr("ERROR \(inputName).txt not found")
         }
     }
+
     public var str = ""
-    public var copyablestr = ""
+//    public var copyablestr = ""
     public var input = ""
 }
 
