@@ -3,10 +3,10 @@ import SwiftGraph
 
 extension Mine {
     func run() {
-        loadInput("day4")
-        
+        loadInput("day2")
+        pr("test")
     }
-
+    // Day1()
 }
 
 struct ContentView: View {
@@ -35,11 +35,7 @@ class Mine {
 
     func loadInput(_ inputName: String) {
         if let filepath = Bundle.main.path(forResource: inputName, ofType: "txt") {
-            do {
-                input = try! String(contentsOfFile: filepath)
-            } catch {
-                pr("CONTENT LOAD ERROR")
-            }
+            input = try! String(contentsOfFile: filepath)
         } else {
             pr("ERROR \(inputName).txt not found")
         }

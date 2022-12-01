@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41C56E3C29386E6000EF8A28 /* Olds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C56E3B29386E6000EF8A28 /* Olds.swift */; };
 		41D3ADFD2937EBD200C99DDC /* day2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41D3ADFC2937EBD200C99DDC /* day2.txt */; };
 		41FC1A7B2937124E00101C2C /* AOC22_xcodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC1A7A2937124E00101C2C /* AOC22_xcodeApp.swift */; };
 		41FC1A7D2937124E00101C2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC1A7C2937124E00101C2C /* ContentView.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41C56E3B29386E6000EF8A28 /* Olds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Olds.swift; sourceTree = "<group>"; };
 		41D3ADFC2937EBD200C99DDC /* day2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day2.txt; sourceTree = "<group>"; };
 		41FC1A772937124E00101C2C /* AOC22-xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AOC22-xcode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FC1A7A2937124E00101C2C /* AOC22_xcodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOC22_xcodeApp.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				41FC1A7C2937124E00101C2C /* ContentView.swift */,
 				41FC1A7E2937124F00101C2C /* Assets.xcassets */,
 				41FC1A802937124F00101C2C /* Preview Content */,
+				41C56E3B29386E6000EF8A28 /* Olds.swift */,
 			);
 			path = "AOC22-xcode";
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41FC1A7D2937124E00101C2C /* ContentView.swift in Sources */,
+				41C56E3C29386E6000EF8A28 /* Olds.swift in Sources */,
 				41FC1A7B2937124E00101C2C /* AOC22_xcodeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
