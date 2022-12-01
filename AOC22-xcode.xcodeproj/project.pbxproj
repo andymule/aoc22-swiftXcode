@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41460E6B29391F660053F70E /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 41460E6A29391F660053F70E /* TextView */; };
+		41460E6D293948020053F70E /* SelectableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41460E6C293948020053F70E /* SelectableText.swift */; };
 		41C56E3C29386E6000EF8A28 /* Olds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C56E3B29386E6000EF8A28 /* Olds.swift */; };
 		41D3ADFD2937EBD200C99DDC /* day2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41D3ADFC2937EBD200C99DDC /* day2.txt */; };
 		41FC1A7B2937124E00101C2C /* AOC22_xcodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC1A7A2937124E00101C2C /* AOC22_xcodeApp.swift */; };
@@ -27,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41460E6C293948020053F70E /* SelectableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableText.swift; sourceTree = "<group>"; };
 		41C56E3B29386E6000EF8A28 /* Olds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Olds.swift; sourceTree = "<group>"; };
 		41D3ADFC2937EBD200C99DDC /* day2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day2.txt; sourceTree = "<group>"; };
 		41FC1A772937124E00101C2C /* AOC22-xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AOC22-xcode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +51,7 @@
 				41FC1A9D293715EE00101C2C /* SwiftGraph in Frameworks */,
 				41FC1A8F2937155D00101C2C /* Collections in Frameworks */,
 				41FC1A9A2937156F00101C2C /* RealModule in Frameworks */,
+				41460E6B29391F660053F70E /* TextView in Frameworks */,
 				41FC1A8C2937154600101C2C /* Algorithms in Frameworks */,
 				41FC1A932937155D00101C2C /* OrderedCollections in Frameworks */,
 				41FC1A982937156F00101C2C /* Numerics in Frameworks */,
@@ -83,6 +87,7 @@
 				41FC1A7E2937124F00101C2C /* Assets.xcassets */,
 				41FC1A802937124F00101C2C /* Preview Content */,
 				41C56E3B29386E6000EF8A28 /* Olds.swift */,
+				41460E6C293948020053F70E /* SelectableText.swift */,
 			);
 			path = "AOC22-xcode";
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				41FC1A972937156F00101C2C /* Numerics */,
 				41FC1A992937156F00101C2C /* RealModule */,
 				41FC1A9C293715EE00101C2C /* SwiftGraph */,
+				41460E6A29391F660053F70E /* TextView */,
 			);
 			productName = "AOC22-xcode";
 			productReference = 41FC1A772937124E00101C2C /* AOC22-xcode.app */;
@@ -165,6 +171,7 @@
 				41FC1A8D2937155D00101C2C /* XCRemoteSwiftPackageReference "swift-collections" */,
 				41FC1A942937156F00101C2C /* XCRemoteSwiftPackageReference "swift-numerics" */,
 				41FC1A9B293715EE00101C2C /* XCRemoteSwiftPackageReference "SwiftGraph" */,
+				41460E6929391F660053F70E /* XCRemoteSwiftPackageReference "TextView" */,
 			);
 			productRefGroup = 41FC1A782937124E00101C2C /* Products */;
 			projectDirPath = "";
@@ -196,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41460E6D293948020053F70E /* SelectableText.swift in Sources */,
 				41FC1A7D2937124E00101C2C /* ContentView.swift in Sources */,
 				41C56E3C29386E6000EF8A28 /* Olds.swift in Sources */,
 				41FC1A7B2937124E00101C2C /* AOC22_xcodeApp.swift in Sources */,
@@ -404,6 +412,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		41460E6929391F660053F70E /* XCRemoteSwiftPackageReference "TextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUI-Plus/TextView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		41FC1A8A2937154600101C2C /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-algorithms.git";
@@ -439,6 +455,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		41460E6A29391F660053F70E /* TextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 41460E6929391F660053F70E /* XCRemoteSwiftPackageReference "TextView" */;
+			productName = TextView;
+		};
 		41FC1A8B2937154600101C2C /* Algorithms */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 41FC1A8A2937154600101C2C /* XCRemoteSwiftPackageReference "swift-algorithms" */;
