@@ -2,11 +2,17 @@ import SwiftGraph
 import SwiftUI
 import TextView
 
+// this command will print to terminal the output of the preview screen
+// should run in ~/Library/Developer/Xcode/UserData/Previews/Simulator Devices
+// watch -n 0.1 find . -name "AOC.txt" -exec cat {} +
 extension Mine {
     func run() {
         loadInput("day3")
-        pr("new one")
-        pr("second one")
+        pr("123")
+        
+        // special weird command that write to copyable text IN SIMULATOR (not copyable in preview)
+        // in case the string you need as output is really long/weird/hard to visually copy
+        // copyout("special output")
     }
 }
 
@@ -14,7 +20,7 @@ struct ContentView: View {
     let mine = Mine()
     init() {
         mine.run()
-        mine.writeout(mine.str)
+        mine.writeout(mine.str + "\n" + mine.copyablestr) // writes to txt file in preview folder
     }
 
     @State private var output: String = ""
@@ -22,19 +28,10 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text(mine.str).textSelection(.enabled)
-//            TextView($output).font(.title2).fontWeight(.bold)
-//                .onAppear { // onAppear needs line change in code to work
-//                    output = mine.copyablestr
-//                }
-//            SelectableText(text: output, isSelected: self.$isSelected)
-//                .onTapGesture {
-//                     self.isSelected.toggle()
-//                 }
-//                 .onReceive(NotificationCenter.default.publisher(for: UIMenuController.willHideMenuNotification)) { _ in
-//                     self.isSelected = false
-//                 } .onAppear {  // onAppear needs line change in code to work
-//                     output = mine.copyablestr
-//                 }
+            TextView($output).font(.title2).fontWeight(.bold)
+                .onAppear { // onAppear needs line change in code to work
+                output = mine.copyablestr
+            }
         }.textSelection(.enabled)
     }
 }
@@ -52,12 +49,12 @@ class Mine {
         self.str = self.str.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
-//    // text-copyable string
-//    // only outputs when a line in changed in xcode, but is selectable in preview
-//    func copyout(_ str: Any) {
-//        copyablestr += "\n" + "\(str)"
-//        copyablestr = copyablestr.trimmingCharacters(in: .whitespacesAndNewlines)
-//    }
+    // text-copyable string
+    // only outputs when a line in changed in xcode, but is selectable in preview
+    func copyout(_ str: Any) {
+        copyablestr += "\n" + "\(str)"
+        copyablestr = copyablestr.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 
     func loadInput(_ inputName: String) {
         if let filepath = Bundle.main.path(forResource: inputName, ofType: "txt") {
@@ -87,7 +84,7 @@ class Mine {
     }
 
     public var str = ""
-//    public var copyablestr = ""
+    public var copyablestr = ""
     public var input = ""
 }
 
