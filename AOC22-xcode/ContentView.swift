@@ -4,20 +4,17 @@ import TextView
 
 extension Mine {
     func run() {
-        loadInput("day2")
-        for a in 0 ... 14 {
-            pr(a)
-        }
-        pr("asdssss")
-//        copyout(1 + 2) // only outputs when a line in changed in xcode, but is selectable in preview
+        loadInput("day3")
+        pr("new one")
+        pr("second one")
     }
-    // Day1()
 }
 
 struct ContentView: View {
     let mine = Mine()
     init() {
         mine.run()
+        mine.writeout(mine.str)
     }
 
     @State private var output: String = ""
@@ -67,6 +64,25 @@ class Mine {
             input = try! String(contentsOfFile: filepath)
         } else {
             pr("ERROR \(inputName).txt not found")
+        }
+    }
+
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+
+    // write to file from previews? wow
+    public func writeout(_ str: String)
+    {
+//        let str = "Super long string here"
+        print(str)
+        let filename = getDocumentsDirectory().appendingPathComponent("AOC.txt")
+        do {
+            try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("ERROR")
+            // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
         }
     }
 
