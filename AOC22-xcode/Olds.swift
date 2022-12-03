@@ -4,12 +4,12 @@ extension Mine {
         var sum = 0
         for l in input.components(separatedBy: "\n") {
             let line = Array(l)
-            var first = line[0...l.count / 2 - 1]//.sorted()
-            var second = line[l.count / 2...l.count - 1]//.sorted()
+            let first = line[0...l.count / 2 - 1]//.sorted()
+            let second = line[l.count / 2...l.count - 1]//.sorted()
             let commonArray = first.filter { fruit in
                 second.contains(fruit)
             }
-            sum += val(String(commonArray[0]))
+            sum += commonArray[0].valDay3()
         }
         pr(sum)
 
@@ -21,29 +21,18 @@ extension Mine {
             }.filter { fruit in
                 lines[i - 2].contains(fruit)
             }
-            sum += val(String(Array(commonArray1)[0]))
+            sum += Array(commonArray1)[0].valDay3()
         }
         pr(sum)
     }
 
-    func val(_ str: String) -> Int {
-        var returnVal = Int(Character(str).asciiValue!)
-        if returnVal >= 97 {
-            returnVal -= 70 + 26
-        } else {
-            returnVal -= 64 - 26
-        }
-
-        return returnVal
-    }
-
     func Day1() {
         loadInput("day1")
-        var twoLines = input.components(separatedBy: "\n\n")
+        let twoLines = input.components(separatedBy: "\n\n")
         var most = 0
         var sums: [Int] = []
         for a in twoLines {
-            var s = a.components(separatedBy: "\n").compactMap { Int($0) }
+            let s = a.components(separatedBy: "\n").compactMap { Int($0) }
             most = max (most, s.reduce(0, +))
             sums.append(s.reduce(0, +))
         }
@@ -56,8 +45,8 @@ extension Mine {
 
         var totalScore = 0
         for l in input.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: "\n") {
-            var a = l.components(separatedBy: " ")[0]
-            var b = l.components(separatedBy: " ")[1]
+            let a = l.components(separatedBy: " ")[0]
+            let b = l.components(separatedBy: " ")[1]
             //            pr(a)
             //            pr(b)
             switch a {

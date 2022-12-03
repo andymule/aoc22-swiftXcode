@@ -7,7 +7,8 @@ import TextView
 // watch -n 0.1 find . -name "AOC.txt" -exec cat {} +
 extension Mine {
     func run() {
-        pr("Test")
+        loadInput("day4")
+        pr("READY")
     }
     // special weird command that write to copyable text IN SIMULATOR (not copyable in preview)
     // in case the string you need as output is really long/weird/hard to visually copy
