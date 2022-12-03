@@ -1,4 +1,58 @@
 extension Mine {
+    func Day3() {
+        loadInput("day3")
+        var sum = 0
+        for l in input.components(separatedBy: "\n") {
+            let line = Array(l)
+            var first = line[0...l.count / 2-1]//.sorted()
+            var second = line[l.count / 2...l.count-1]//.sorted()
+            //            pr(first.count)
+            //            pr(second.count)
+            let commonArray = first.filter { fruit in
+                second.contains(fruit)
+            }
+            //            pr(first)
+            //            pr(commonArray)
+            sum += val(String(commonArray[0]))
+            //            return
+        }
+        //        pr(val("A"))
+        //        pr(sum)
+        
+        sum=0
+        let lines = input.components(separatedBy: "\n")
+        for i in stride(from: 2, to: lines.count, by: 3)  {
+            //            let all3 = lines[i] + lines[i-1] + lines[i-2]
+            //            let allA = Array(all3)
+            //            var first = line[0...l.count / 2-1]//.sorted()
+            //            var second = line[l.count / 2...l.count-1]//.sorted()
+            //            pr(first.count)
+            //            pr(second.count)
+            let commonArray1 = lines[i].filter { fruit in
+                lines[i-1].contains(fruit)
+            }
+            let commonArray2 = commonArray1.filter { fruit in
+                lines[i-2].contains(fruit)
+            }
+            //                        pr(commonArray2)
+            //            pr(Array(commonArray2)[0])
+            sum += val(String(Array(commonArray2)[0]))
+            //            return
+        }
+        pr(sum)
+    }
+    
+    func val(_ str: String) -> Int {
+        var returnVal = Int(Character(str).asciiValue!)
+        if returnVal >= 97 {
+            returnVal -= 70 + 26
+        } else {
+            returnVal -= 64 - 26
+        }
+        
+        return returnVal
+    }
+    
     func Day1() {
         loadInput("day1")
         var twoLines = input.components(separatedBy: "\n\n")

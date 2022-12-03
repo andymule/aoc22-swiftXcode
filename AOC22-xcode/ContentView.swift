@@ -3,17 +3,15 @@ import SwiftUI
 import TextView
 
 // this command will print to terminal the output of the preview screen
-// should run in ~/Library/Developer/Xcode/UserData/Previews/Simulator Devices
+///should run in ~/Library/Developer/Xcode/UserData/Previews/Simulator Devices/53F099E6-21B0-4FE4-94CF-7BA756439400/data/Containers/Data/Application
 // watch -n 0.1 find . -name "AOC.txt" -exec cat {} +
 extension Mine {
     func run() {
-        loadInput("day3")
-        pr("123")
-        
-        // special weird command that write to copyable text IN SIMULATOR (not copyable in preview)
-        // in case the string you need as output is really long/weird/hard to visually copy
-        // copyout("special output")
+        pr("Test")
     }
+    // special weird command that write to copyable text IN SIMULATOR (not copyable in preview)
+    // in case the string you need as output is really long/weird/hard to visually copy
+    // copyout("special output")
 }
 
 struct ContentView: View {
@@ -58,7 +56,7 @@ class Mine {
 
     func loadInput(_ inputName: String) {
         if let filepath = Bundle.main.path(forResource: inputName, ofType: "txt") {
-            input = try! String(contentsOfFile: filepath)
+            input = try! String(contentsOfFile: filepath).trimmingCharacters(in: .whitespacesAndNewlines)
         } else {
             pr("ERROR \(inputName).txt not found")
         }
