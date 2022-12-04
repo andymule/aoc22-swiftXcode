@@ -1,4 +1,25 @@
 extension Mine {
+    func Day4() {
+        loadInput("day4")
+        var count = 0
+        for l in input.components(separatedBy: .newlines) {
+            var toks = l.components(separatedBy: ",")
+            var a1 = Int(toks[0].components(separatedBy: "-")[0])!
+            var a2 = Int(toks[0].components(separatedBy: "-")[1])!
+            var a = Array(a1...a2)
+            var b1 = Int(toks[1].components(separatedBy: "-")[0])!
+            var b2 = Int(toks[1].components(separatedBy: "-")[1])!
+            var b = Array(b1...b2)
+            if a.filter({ x in b.contains(x) }).count > 0 || // a.count or b.count for part A
+                b.filter({ x in a.contains(x) }).count > 0 {
+                count += 1
+            }
+            //            var tok = l
+            //            var a =
+        }
+        pr(count)
+    }
+
     func Day3() {
         loadInput("day3")
         var sum = 0
