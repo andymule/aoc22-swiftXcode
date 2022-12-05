@@ -3,8 +3,9 @@ import SwiftUI
 import TextView
 
 // this command will print to terminal the output of the preview screen
-///should run in ~/Library/Developer/Xcode/UserData/Previews/Simulator Devices/53F099E6-21B0-4FE4-94CF-7BA756439400/data/Containers/Data/Application
+///should run in ~/Library/Developer/Xcode/UserData/Previews/Simulator\ Devices/53F099E6-21B0-4FE4-94CF-7BA756439400/data/Containers/Data/Application
 // watch -n 0.1 find . -name "AOC.txt" -exec cat {} +
+// watch -n 0.1 pkill "Problem Reporter"
 extension Mine {
     func run() {
         loadInput("day5")
@@ -87,5 +88,11 @@ class Mine {
     public var input = ""
 }
 
-// split into tokens, parse into things
+/// split into tokens, parse into things
 // let items = lines[i].components(separatedBy: CharacterSet(charactersIn: " \t")).compactMap { Int($0) }
+
+/// generate list of things using iterator and map
+// let aScalars = Character("a").asciiValue!
+//var letters: [Character] = (0..<26).map {
+//    i in Character(UnicodeScalar(aScalars + i))
+//}
