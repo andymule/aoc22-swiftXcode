@@ -2,14 +2,17 @@ import SwiftGraph
 import SwiftUI
 import TextView
 
-// this command will print to terminal the output of the preview screen
-///should run in ~/Library/Developer/Xcode/UserData/Previews/Simulator\ Devices/53F099E6-21B0-4FE4-94CF-7BA756439400/data/Containers/Data/Application
-// watch -n 0.1 find . -name "AOC.txt" -exec cat {} +
-// watch -n 0.1 pkill "Problem Reporter"
+/// this command will print to terminal the output of the preview screen
+/// & should run in or your local active folder
+/// ~/Library/Developer/Xcode/UserData/Previews/Simulator\ Devices/53F099E6-21B0-4FE4-94CF-7BA756439400/data/Containers/Data/Application
+/// watch -n 0.1 find . -name "AOC.txt" -exec cat {} +
+/// watch -n 0.1 pkill "Problem Reporter"
+/// 􀆔+􀆕+P reloads preview if stopped
 extension Mine {
     func run() {
-        loadInput("day5")
-        pr("OK")
+//        loadInput("day5")
+        pr(input)
+//        pr("OK")
     }
     // special weird command that write to copyable text IN SIMULATOR (not copyable in preview)
     // in case the string you need as output is really long/weird/hard to visually copy
@@ -64,17 +67,12 @@ class Mine {
         }
     }
 
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-
     // write to file from previews? wow
     public func writeout(_ str: String)
     {
 //        let str = "Super long string here"
         print(str)
-        let filename = getDocumentsDirectory().appendingPathComponent("AOC.txt")
+        let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("AOC.txt")
         do {
             try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
         } catch {
@@ -85,7 +83,7 @@ class Mine {
 
     public var str = ""
     public var copyablestr = ""
-    public var input = ""
+    public var input = "NO FILE LOADED"
 }
 
 /// split into tokens, parse into things
