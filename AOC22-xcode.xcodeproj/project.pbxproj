@@ -10,6 +10,8 @@
 		41460E6B29391F660053F70E /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 41460E6A29391F660053F70E /* TextView */; };
 		416DE3CA293BF165003D77D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416DE3C9293BF165003D77D0 /* Extensions.swift */; };
 		41C56E3C29386E6000EF8A28 /* Olds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C56E3B29386E6000EF8A28 /* Olds.swift */; };
+		41D05129293DB22D00430EAC /* day5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41D05128293DB22D00430EAC /* day5.txt */; };
+		41D0512B293DB9D100430EAC /* day6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41D0512A293DB9D100430EAC /* day6.txt */; };
 		41D3ADFD2937EBD200C99DDC /* day2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41D3ADFC2937EBD200C99DDC /* day2.txt */; };
 		41FC1A7B2937124E00101C2C /* AOC22_xcodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC1A7A2937124E00101C2C /* AOC22_xcodeApp.swift */; };
 		41FC1A7D2937124E00101C2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC1A7C2937124E00101C2C /* ContentView.swift */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		416DE3C9293BF165003D77D0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		41C56E3B29386E6000EF8A28 /* Olds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Olds.swift; sourceTree = "<group>"; };
+		41D05128293DB22D00430EAC /* day5.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day5.txt; sourceTree = "<group>"; };
+		41D0512A293DB9D100430EAC /* day6.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day6.txt; sourceTree = "<group>"; };
 		41D3ADFC2937EBD200C99DDC /* day2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = day2.txt; sourceTree = "<group>"; };
 		41FC1A772937124E00101C2C /* AOC22-xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AOC22-xcode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41FC1A7A2937124E00101C2C /* AOC22_xcodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOC22_xcodeApp.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				41FC1A9E2937BB0400101C2C /* day1.txt */,
 				41FCC6FF2937FBFC007964B0 /* day3.txt */,
 				41FCC70129380982007964B0 /* day4.txt */,
+				41D05128293DB22D00430EAC /* day5.txt */,
+				41D0512A293DB9D100430EAC /* day6.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -189,10 +195,12 @@
 			files = (
 				41FC1A822937124F00101C2C /* Preview Assets.xcassets in Resources */,
 				41FC1A9F2937BB0400101C2C /* day1.txt in Resources */,
+				41D0512B293DB9D100430EAC /* day6.txt in Resources */,
 				41D3ADFD2937EBD200C99DDC /* day2.txt in Resources */,
 				41FC1A7F2937124F00101C2C /* Assets.xcassets in Resources */,
 				41FCC70229380982007964B0 /* day4.txt in Resources */,
 				41FCC7002937FBFC007964B0 /* day3.txt in Resources */,
+				41D05129293DB22D00430EAC /* day5.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

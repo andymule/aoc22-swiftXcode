@@ -15,6 +15,13 @@ extension String {
     func int() -> Int {
         return Int(Character(self).asciiValue!)
     }
+    
+    static func + (l: String, r: Character) -> String {
+        return String(l).appending(String(r))
+    }
+    static func + (l: Character, r: String) -> String {
+        return String(l).appending(String(r))
+    }
 }
 
 extension StringProtocol {
@@ -49,6 +56,12 @@ extension Character {
     }
 
     static func + (l: Character, r: Character) -> String {
+        return String(l).appending(String(r))
+    }
+    static func + (l: String, r: Character) -> String {
+        return String(l).appending(String(r))
+    }
+    static func + (l: Character, r: String) -> String {
         return String(l).appending(String(r))
     }
 }

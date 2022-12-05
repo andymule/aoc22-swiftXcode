@@ -1,21 +1,55 @@
 extension Mine {
+    func Day5() {
+        loadInput("day5")
+        let twoPartsIn = input.components(separatedBy: "\n\n")
+        let stackCount = Int(twoPartsIn[0].components(separatedBy: "\n").last!.components(separatedBy: " ").last!)!
+        var stacks = Array(repeating: [String].self(), count: stackCount)
+        let startMap = twoPartsIn[0]
+        for l in startMap.components(separatedBy: "\n") {
+            for i in stride(from: 0, to: l.count, by: 4) {
+                let thisChar = String(l[i + 1])
+                if l[i + 1].isNumber || l[i + 1] == " " {
+                    continue
+                }
+                stacks[(i) / 4].append(thisChar)
+            }
+        }
+        let instructions = twoPartsIn[1]
+        for l in instructions.components(separatedBy: .newlines) {
+            let bits = l.components(separatedBy: " ")
+            var amount = Int(bits[1])!
+            let startAmount = Int(bits[1])!
+            let from = Int(bits[3])! - 1
+            let to = Int(bits[5])! - 1
+            var c = 0
+            while c < startAmount {
+                let a = stacks[from].remove(at: startAmount - c - 1)
+                stacks[to].insert(a, at: 0)
+                c += 1
+            }
+        }
+        var output = ""
+        for s in stacks {
+            output += s[0]
+        }
+        pr(output)
+    }
+
     func Day4() {
         loadInput("day4")
         var count = 0
         for l in input.components(separatedBy: .newlines) {
-            var toks = l.components(separatedBy: ",")
-            var a1 = Int(toks[0].components(separatedBy: "-")[0])!
-            var a2 = Int(toks[0].components(separatedBy: "-")[1])!
-            var a = Array(a1...a2)
-            var b1 = Int(toks[1].components(separatedBy: "-")[0])!
-            var b2 = Int(toks[1].components(separatedBy: "-")[1])!
-            var b = Array(b1...b2)
+            let toks = l.components(separatedBy: ",")
+            let a1 = Int(toks[0].components(separatedBy: "-")[0])!
+            let a2 = Int(toks[0].components(separatedBy: "-")[1])!
+            let a = Array(a1...a2)
+            let b1 = Int(toks[1].components(separatedBy: "-")[0])!
+            let b2 = Int(toks[1].components(separatedBy: "-")[1])!
+            let b = Array(b1...b2)
             if a.filter({ x in b.contains(x) }).count > 0 || // a.count or b.count for part A
                 b.filter({ x in a.contains(x) }).count > 0 {
                 count += 1
             }
-            //            var tok = l
-            //            var a =
         }
         pr(count)
     }

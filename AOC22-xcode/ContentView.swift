@@ -7,7 +7,8 @@ import TextView
 // watch -n 0.1 find . -name "AOC.txt" -exec cat {} +
 extension Mine {
     func run() {
-
+        loadInput("day5")
+        pr("OK")
     }
     // special weird command that write to copyable text IN SIMULATOR (not copyable in preview)
     // in case the string you need as output is really long/weird/hard to visually copy
@@ -56,7 +57,7 @@ class Mine {
 
     func loadInput(_ inputName: String) {
         if let filepath = Bundle.main.path(forResource: inputName, ofType: "txt") {
-            input = try! String(contentsOfFile: filepath).trimmingCharacters(in: .whitespacesAndNewlines)
+            input = try! String(contentsOfFile: filepath).trimmingCharacters(in: .newlines)
         } else {
             pr("ERROR \(inputName).txt not found")
         }
