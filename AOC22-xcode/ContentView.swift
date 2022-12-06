@@ -10,9 +10,8 @@ import TextView
 /// 􀆔+􀆕+P reloads preview if stopped
 extension Mine {
     func run() {
-//        loadInput("day5")
-        pr(input)
-//        pr("OK")
+        loadInput("day6")
+        pr("Ok")
     }
     // special weird command that write to copyable text IN SIMULATOR (not copyable in preview)
     // in case the string you need as output is really long/weird/hard to visually copy

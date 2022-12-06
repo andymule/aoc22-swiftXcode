@@ -1,4 +1,24 @@
 extension Mine {
+    func Day6() {
+        loadInput("day6")
+        for i in 14...input.count {
+            let last4 = input[i - 14..<i]
+            let number_of_distinct = Set(last4).count
+
+            if(number_of_distinct >= 14)
+            {
+                pr("yes")
+                pr(last4)
+                pr(i)
+                return
+            }
+            else
+            {
+                //                pr("no")
+                // no we don't have at least 7 unique chars.
+            }
+        }
+    }
     func Day5() {
         loadInput("day5")
         let twoPartsIn = input.components(separatedBy: "\n\n")
