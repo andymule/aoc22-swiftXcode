@@ -11,30 +11,18 @@ import TextView
 extension Mine {
     func run() {
         loadInput("day6")
-        pr("Ok")
+        pr("a")
     }
-    // special weird command that write to copyable text IN SIMULATOR (not copyable in preview)
-    // in case the string you need as output is really long/weird/hard to visually copy
-    // copyout("special output")
 }
 
 struct ContentView: View {
     let mine = Mine()
     init() {
         mine.run()
-        mine.writeout(mine.str + "\n" + mine.copyablestr) // writes to txt file in preview folder
+        mine.writeout(mine.str)// + "\n" + mine.copyablestr) // writes to txt file in preview folder
     }
-
-    @State private var output: String = ""
-    @State private var isSelected = false
     var body: some View {
-        VStack {
-            Text(mine.str).textSelection(.enabled)
-            TextView($output).font(.title2).fontWeight(.bold)
-                .onAppear { // onAppear needs line change in code to work
-                output = mine.copyablestr
-            }
-        }.textSelection(.enabled)
+        Text(mine.str)
     }
 }
 
@@ -47,15 +35,17 @@ struct ContentView_Previews: PreviewProvider {
 class Mine {
     // FAST output, always works as expected, NOT selectable in preview
     func pr(_ str: Any) {
-        self.str += "\n" + "\(str)"
-        self.str = self.str.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.str += "\(str)\n"
+//        self.str = self.str.trimmingCharacters(in: .newlines)
     }
 
-    // text-copyable string
-    // only outputs when a line in changed in xcode, but is selectable in preview
-    func copyout(_ str: Any) {
-        copyablestr += "\n" + "\(str)"
-        copyablestr = copyablestr.trimmingCharacters(in: .whitespacesAndNewlines)
+    func pr(_ str: Any...) {
+        var newBit = ""
+        for s in str {
+            newBit += "\(s) "
+        }
+        self.str += "\(newBit)\n"
+//        self.str = self.str.trimmingCharacters(in: .newlines)
     }
 
     func loadInput(_ inputName: String) {
@@ -69,8 +59,7 @@ class Mine {
     // write to file from previews? wow
     public func writeout(_ str: String)
     {
-//        let str = "Super long string here"
-        print(str)
+//        print(str)
         let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("AOC.txt")
         do {
             try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
@@ -81,7 +70,6 @@ class Mine {
     }
 
     public var str = ""
-    public var copyablestr = ""
     public var input = "NO FILE LOADED"
 }
 

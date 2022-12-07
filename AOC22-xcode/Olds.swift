@@ -37,7 +37,7 @@ extension Mine {
         let instructions = twoPartsIn[1]
         for l in instructions.components(separatedBy: .newlines) {
             let bits = l.components(separatedBy: " ")
-            var amount = Int(bits[1])!
+            _ = Int(bits[1])!
             let startAmount = Int(bits[1])!
             let from = Int(bits[3])! - 1
             let to = Int(bits[5])! - 1
