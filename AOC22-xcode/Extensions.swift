@@ -12,24 +12,11 @@ extension String {
         return returnVal
     }
 
-    func int() -> Int {
-        return Int(Character(self).asciiValue!)
-    }
-
     static func + (l: String, r: Character) -> String {
         return String(l).appending(String(r))
     }
     static func + (l: Character, r: String) -> String {
         return String(l).appending(String(r))
-    }
-
-    var wordCount: Int {
-        let regex = try? NSRegularExpression(pattern: "\\w+")
-        return regex?.numberOfMatches(in: self, range: NSRange(location: 0, length: self.utf16.count)) ?? 0
-    }
-    func withPrefix(_ prefix: String) -> String {
-        if self.hasPrefix(prefix) { return self }
-        return "\(prefix)\(self)"
     }
 }
 

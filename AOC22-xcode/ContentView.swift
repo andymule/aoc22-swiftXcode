@@ -11,7 +11,7 @@ import TextView
 extension Mine {
     func run() {
         loadInput("day6")
-        pr("a")
+        pr("aass")
     }
 }
 

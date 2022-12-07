@@ -1181,14 +1181,6 @@ public extension String {
 // MARK: - NSAttributedString
 
 public extension String {
-    #if os(iOS) || os(macOS)
-    /// SwifterSwift: Bold string.
-    var bold: NSAttributedString {
-        return NSMutableAttributedString(
-            string: self,
-            attributes: [.font: SFFont.boldSystemFont(ofSize: SFFont.systemFontSize)])
-    }
-    #endif
 
     #if canImport(Foundation)
     /// SwifterSwift: Underlined string
@@ -1212,16 +1204,6 @@ public extension String {
         return NSMutableAttributedString(
             string: self,
             attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
-    }
-    #endif
-
-    #if canImport(AppKit) || canImport(UIKit)
-    /// SwifterSwift: Add color to string.
-    ///
-    /// - Parameter color: text color.
-    /// - Returns: a NSAttributedString versions of string colored with given color.
-    func colored(with color: SFColor) -> NSAttributedString {
-        return NSMutableAttributedString(string: self, attributes: [.foregroundColor: color])
     }
     #endif
 }
@@ -1329,13 +1311,13 @@ public extension String {
         return (self as NSString).appendingPathExtension(str)
     }
 
-    /// SwifterSwift: Accesses a contiguous subrange of the collection’s elements.
-    /// - Parameter nsRange: A range of the collection’s indices. The bounds of the range must be valid indices of the collection.
-    /// - Returns: A slice of the receiving string.
-    subscript(bounds: NSRange) -> Substring {
-        guard let range = Range(bounds, in: self) else { fatalError("Failed to find range \(bounds) in \(self)") }
-        return self[range]
-    }
+//    /// SwifterSwift: Accesses a contiguous subrange of the collection’s elements.
+//    /// - Parameter nsRange: A range of the collection’s indices. The bounds of the range must be valid indices of the collection.
+//    /// - Returns: A slice of the receiving string.
+//    subscript(bounds: NSRange) -> Substring {
+//        guard let range = Range(bounds, in: self) else { fatalError("Failed to find range \(bounds) in \(self)") }
+//        return self[range]
+//    }
 }
 
 #endif
