@@ -1,4 +1,121 @@
 extension Mine {
+    func Day7() {
+        class fs {
+            let name: String
+            init(_ name: String) {
+                self.name = name
+            }
+        }
+        class file: fs {
+            let size: Int
+            init(_ name: String, _ size: Int) {
+                self.size = size
+                super.init(name)
+            }
+        }
+        class dir: fs {
+            var contents: [String: fs] = [:]
+            let parent: dir?
+            let isRoot: Bool
+            var totalSize = 0 // calculated at end only
+
+            init(_ name: String, _ parent: dir) {
+                self.parent = parent
+                isRoot = false
+                super.init(name)
+            }
+
+            init(_ name: String, isRoot: Bool) {
+                self.isRoot = true
+                self.parent = nil
+                super.init(name)
+            }
+        }
+
+        func calcSize(_ cd: dir) -> Int {
+            for (_, c) in cd.contents {
+                if c is dir {
+                    cd.totalSize += calcSize(c as! dir)
+                } else {
+                    cd.totalSize += (c as! file).size
+                }
+            }
+
+            if cd.totalSize >= 8381165 && cd.totalSize < curSmallest {
+                //            totalSum += cd.totalSize
+                curSmallest = cd.totalSize
+                pr("!!", cd.name, cd.totalSize, totalSum)
+            }
+            return cd.totalSize
+        }
+
+
+        func tryGoDir(_ newDir: String) {
+            if curDir.contents[newDir] != nil {
+                if curDir.contents[newDir] is file {
+                    pr("ERROR", newDir)
+                }
+                else {
+                    curDir = curDir.contents[newDir] as! dir
+                }
+            }
+            else {
+                curDir = tryMakeDir(newDir)
+            }
+        }
+
+        func tryMakeDir(_ newDir: String) -> dir {
+            if curDir.contents[newDir] == nil {
+                curDir.contents[newDir] = dir(newDir, curDir)
+            }
+            return curDir.contents[newDir] as! dir
+        }
+
+        func tryMakeFile(_ newFile: String, _ size: String) -> file {
+            if curDir.contents[newFile] == nil {
+                curDir.contents[newFile] = file(newFile, Int(size)!)
+            }
+            return curDir.contents[newFile] as! file
+        }
+
+        var totalSum = 0
+        var curSmallest = 999999999999999
+        let rootDir: dir = .init("/", isRoot: true)
+        var curDir: dir = .init("", isRoot: true)
+
+        loadInput("day7")
+        curDir = rootDir
+        for l in input.components(separatedBy: "\n") {
+            let toks = l.components(separatedBy: " ")
+            if toks[0] == "$"
+            {
+                switch toks[1] {
+                case "cd":
+                    if toks[2] == ".." {
+                        curDir = curDir.parent!
+                    } else {
+                        tryGoDir(toks[2])
+                    }
+                case "ls":
+                    continue
+                default:
+                    pr("ERROR", l)
+                    break
+                }
+            } else if toks[0] == "dir" {
+                _ = tryMakeDir(toks[1])
+            } else if l[0].isNumber {
+                _ = tryMakeFile(toks[1], toks[0])
+            } else {
+                pr("ERROR", l)
+            }
+        }
+
+        curDir = rootDir
+        _ = calcSize(curDir)
+        pr(curSmallest)
+    }
+    
     func Day6() {
         loadInput("day6")
         for i in 14...input.count {
@@ -19,6 +136,7 @@ extension Mine {
             }
         }
     }
+    
     func Day5() {
         loadInput("day5")
         let twoPartsIn = input.components(separatedBy: "\n\n")

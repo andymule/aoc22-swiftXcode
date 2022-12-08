@@ -8,11 +8,13 @@ import TextView
 /// watch -n 0.1 find . -name "AOC.txt" -exec cat {} +
 /// watch -n 0.1 pkill "Problem Reporter"
 /// 􀆔+􀆕+P reloads preview if stopped
-extension Mine {
+class Mine {
     func run() {
-        loadInput("day6")
-        pr("aass")
+        loadInput("day8")
+        pr(input)
     }
+    public var str = ""
+    public var input = "NO FILE LOADED"
 }
 
 struct ContentView: View {
@@ -32,7 +34,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-class Mine {
+extension Mine {
     // FAST output, always works as expected, NOT selectable in preview
     func pr(_ str: Any) {
         self.str += "\(str)\n"
@@ -68,9 +70,6 @@ class Mine {
             // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
         }
     }
-
-    public var str = ""
-    public var input = "NO FILE LOADED"
 }
 
 /// split into tokens, parse into things
