@@ -1,4 +1,129 @@
 extension Mine {
+    func Day8() {
+        class Tree {
+            var visible: Bool = false
+            let height: Int
+            init(_ h: Int) {
+                height = h
+            }
+        }
+        loadInput("day8")
+        var trees: [([Int]): Tree] = [:]
+        let lines = input.components(separatedBy: .newlines)
+        for y in 0..<lines.count {
+            for x in 0..<lines[y].count {
+                let h = Int(String(lines[y][x]))!
+                trees[[y, x]] = Tree(h)
+            }
+        }
+
+        for x in 0..<lines[0].count {
+            var tallest = -1
+            for y in 0..<lines.count {
+                if trees[[y, x]]!.height > tallest {
+                    tallest = trees[[y, x]]!.height
+                    trees[[y, x]]!.visible = true
+                }
+            }
+        }
+        for x in 0..<lines[0].count {
+            var tallest = -1
+            for y in stride(from: lines.count - 1, to: 0, by: -1) {
+                if trees[[y, x]]!.height > tallest {
+                    tallest = trees[[y, x]]!.height
+                    trees[[y, x]]!.visible = true
+                }
+            }
+        }
+        for y in 0..<lines.count {
+            var tallest = -1
+            for x in 0..<lines[y].count {
+                if trees[[y, x]]!.height > tallest {
+                    tallest = trees[[y, x]]!.height
+                    trees[[y, x]]!.visible = true
+                }
+            }
+        }
+        for y in 0..<lines.count {
+            var tallest = -1
+            for x in stride(from: lines[y].count - 1, to: 0, by: -1) {
+                if trees[[y, x]]!.height > tallest {
+                    tallest = trees[[y, x]]!.height
+                    trees[[y, x]]!.visible = true
+                }
+            }
+        }
+        pr(trees.values.filter({ $0.visible }).count)
+        pr()
+
+        for f in trees.values {
+            f.visible = false
+        }
+
+        var MOSTSEEN = 0
+        for y in 0..<lines.count {
+            for x in 0..<lines[y].count {
+                let thisH = trees[[y, x]]!.height
+                if y == 3 && x == 2 {
+                    _ = 69
+                }
+                let visUp = {
+                    var count = 0
+                    var yy = y - 1
+                    while yy >= 0 {
+                        if trees[[yy, x]]!.height >= thisH {
+                            return Int(count + 1)
+                        }
+                        yy -= 1
+                        count += 1
+                    }
+                    return Int(count)
+                }
+                let visDown = {
+                    var count = 0
+                    var yy = y + 1
+                    while yy < lines.count {
+                        if trees[[yy, x]]!.height >= thisH {
+                            return Int(count + 1)
+                        }
+                        count += 1
+                        yy += 1
+                    }
+                    return Int(count)
+                }
+                let visRight = {
+                    var count = 0
+                    var xx = x + 1
+                    while xx < lines[0].count {
+                        if trees[[y, xx]]!.height >= thisH {
+                            return Int(count + 1)
+                        }
+                        xx += 1
+                        count += 1
+                    }
+                    return Int(count)
+                }
+                let visLeft = {
+                    var count = 0
+                    var xx = x - 1
+                    while xx >= 0 {
+                        if trees[[y, xx]]!.height >= thisH {
+                            return Int(count + 1)
+                        }
+                        xx -= 1
+                        count += 1
+                    }
+                    return Int(count)
+                }
+                let thisSeen: Int = visUp() * visLeft() * visDown() * visRight()
+                if thisSeen > MOSTSEEN {
+                    MOSTSEEN = thisSeen
+                }
+            }
+        }
+        pr()
+        pr(MOSTSEEN)
+    }
     func Day7() {
         class fs {
             let name: String
@@ -78,7 +203,7 @@ extension Mine {
             return curDir.contents[newFile] as! file
         }
 
-        var totalSum = 0
+        let totalSum = 0
         var curSmallest = 999999999999999
         let rootDir: dir = .init("/", isRoot: true)
         var curDir: dir = .init("", isRoot: true)
@@ -115,7 +240,7 @@ extension Mine {
         _ = calcSize(curDir)
         pr(curSmallest)
     }
-    
+
     func Day6() {
         loadInput("day6")
         for i in 14...input.count {
@@ -136,7 +261,7 @@ extension Mine {
             }
         }
     }
-    
+
     func Day5() {
         loadInput("day5")
         let twoPartsIn = input.components(separatedBy: "\n\n")

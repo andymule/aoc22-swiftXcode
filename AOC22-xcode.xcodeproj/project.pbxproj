@@ -33,6 +33,7 @@
 		41378E72294052590015D4A3 /* BinaryIntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41378E59294052580015D4A3 /* BinaryIntegerExtensions.swift */; };
 		41378E73294052590015D4A3 /* StdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41378E5B294052580015D4A3 /* StdlibDeprecated.swift */; };
 		41378E752941A5D10015D4A3 /* day8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41378E742941A5D10015D4A3 /* day8.txt */; };
+		41378E772941B3260015D4A3 /* day9.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41378E762941B3260015D4A3 /* day9.txt */; };
 		41460E6B29391F660053F70E /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 41460E6A29391F660053F70E /* TextView */; };
 		416DE3CA293BF165003D77D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416DE3C9293BF165003D77D0 /* Extensions.swift */; };
 		41C56E3C29386E6000EF8A28 /* Olds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C56E3B29386E6000EF8A28 /* Olds.swift */; };
@@ -83,6 +84,7 @@
 		41378E59294052580015D4A3 /* BinaryIntegerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryIntegerExtensions.swift; sourceTree = "<group>"; };
 		41378E5B294052580015D4A3 /* StdlibDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StdlibDeprecated.swift; sourceTree = "<group>"; };
 		41378E742941A5D10015D4A3 /* day8.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day8.txt; sourceTree = "<group>"; };
+		41378E762941B3260015D4A3 /* day9.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day9.txt; sourceTree = "<group>"; };
 		416DE3C9293BF165003D77D0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		41C56E3B29386E6000EF8A28 /* Olds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Olds.swift; sourceTree = "<group>"; };
 		41D05128293DB22D00430EAC /* day5.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day5.txt; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				41D0512A293DB9D100430EAC /* day6.txt */,
 				41378E40293F05AD0015D4A3 /* day7.txt */,
 				41378E742941A5D10015D4A3 /* day8.txt */,
+				41378E762941B3260015D4A3 /* day9.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				41FCC70229380982007964B0 /* day4.txt in Resources */,
 				41FCC7002937FBFC007964B0 /* day3.txt in Resources */,
 				41378E41293F05AD0015D4A3 /* day7.txt in Resources */,
+				41378E772941B3260015D4A3 /* day9.txt in Resources */,
 				41D05129293DB22D00430EAC /* day5.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

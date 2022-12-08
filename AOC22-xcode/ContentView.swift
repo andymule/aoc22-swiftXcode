@@ -1,6 +1,7 @@
 import SwiftGraph
 import SwiftUI
 import TextView
+import simd
 
 /// this command will print to terminal the output of the preview screen
 /// & should run in or your local active folder
@@ -10,8 +11,8 @@ import TextView
 /// 􀆔+􀆕+P reloads preview if stopped
 class Mine {
     func run() {
-        loadInput("day8")
-        pr(input)
+        loadInput("day9")
+        pr("oops")
     }
     public var str = ""
     public var input = "NO FILE LOADED"
