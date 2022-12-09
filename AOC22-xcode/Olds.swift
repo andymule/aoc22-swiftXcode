@@ -1,4 +1,58 @@
 extension Mine {
+    func Day9() {
+        let ropeSize = 10
+        var rope: [[Int]] = Array(repeating: [0, 0], count: ropeSize)
+        var tailSet: Set<[Int]> = Set()
+        loadInput("day9")
+        
+        func moveTail(headIndex: Int, tailIndex: Int) {
+            let totalDiff = abs(rope[tailIndex][0] - rope[headIndex][0]) + abs(rope[tailIndex][1] - rope[headIndex][1])
+            if totalDiff >= 3 {
+                let goX = (rope[tailIndex][0] - rope[headIndex][0]).signum()
+                rope[tailIndex][0] -= goX
+                let goY = (rope[tailIndex][1] - rope[headIndex][1]).signum()
+                rope[tailIndex][1] -= goY
+                return
+            }
+            
+            if abs(rope[tailIndex][0] - rope[headIndex][0]) > 1 {
+                let go = (rope[tailIndex][0] - rope[headIndex][0]).signum()
+                rope[tailIndex][0] -= go
+            }
+            if abs(rope[tailIndex][1] - rope[headIndex][1]) > 1 {
+                let go = (rope[tailIndex][1] - rope[headIndex][1]).signum()
+                rope[tailIndex][1] -= go
+            }
+        }
+        
+        tailSet.insert(rope.last!)
+        let lines = input.components(separatedBy: .newlines)
+        for l in lines {
+            let dir = l.components(separatedBy: .whitespacesAndNewlines)[0]
+            var amount = Int(l.components(separatedBy: .whitespacesAndNewlines)[1])!
+            while amount > 0 {
+                amount -= 1
+                switch dir {
+                case "R":
+                    rope[0][0] += 1
+                case "L":
+                    rope[0][0] -= 1
+                case "U":
+                    rope[0][1] += 1
+                case "D":
+                    rope[0][1] -= 1
+                default:
+                    pr("ERROR AMOUNT")
+                }
+                for i in 1..<rope.count {
+                    moveTail(headIndex: i - 1, tailIndex: i)
+                }
+                tailSet.insert(rope.last!)
+            }
+        }
+        pr(2, ":", tailSet.count)
+    }
+    
     func Day8() {
         class Tree {
             var visible: Bool = false

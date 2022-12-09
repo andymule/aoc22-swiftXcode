@@ -11,8 +11,8 @@ import simd
 /// 􀆔+􀆕+P reloads preview if stopped
 class Mine {
     func run() {
-        loadInput("day9")
-        pr("oops")
+        loadInput("day10")
+        pr(input)
     }
     public var str = ""
     public var input = "NO FILE LOADED"
