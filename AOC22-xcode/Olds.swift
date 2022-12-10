@@ -1,4 +1,66 @@
 extension Mine {
+    func Day10() {
+        loadInput("day10")
+        var cycle = 1
+        var reg = 1
+        var totalSum = 0
+        let lines = input.components(separatedBy: .newlines)
+        var index = 0
+        var image = ""
+        //        var image = Array(repeating: ".", count: 240)
+        //String(repeating: ".", count: 240)
+        func inc(_ i: Int) {
+            if  [reg-1, reg, reg + 1].contains((cycle-1)%40) {
+                image += "#"
+            } else {
+                image += "."
+            }
+            reg += i
+            cycle += 1
+            //            pr(image)
+            //            if (cycle + 20) % 40 == 0 {
+            //                let newS = (cycle * reg)
+            //                totalSum += newS
+            //                pr(cycle, reg, newS)
+            //            }
+            //            pr(cycle, reg)
+            //            if (cycle >= 179)
+            //            {
+            //                pr(index, cycle, lines[index], i, reg)
+            //            }
+            //            pr(index, cycle, lines[index], i, reg)
+        }
+        
+        var jk = 0
+        while cycle <= 240 {
+            //        while index < lines.count {
+            let toks = lines[index].components(separatedBy: " ")
+            if toks[0] == "noop" {
+                inc(0)
+                index += 1 //(index + 1) % lines.count
+                continue
+            }
+            else {
+                inc(0)
+                inc(Int(toks[1])!)
+                index += 1 //(index + 1) % lines.count
+            }
+            //            if (index > lines.count - 5) {
+            //                pr(index)
+            //            }
+        }
+        //        pr(image[0...40])
+        //        let bigString = image.map({$0}).joined(seperator : ",")
+        //        let bigString = image.map{"\($0)"}.reduce("") { $0 + $1 }
+        pr(image[0..<40])
+        pr(image[40..<80])
+        pr(image[80..<120])
+        pr(image[120..<160])
+        pr(image[160..<200])
+        pr(image[200..<240])
+        //        pr(im)
+    }
+    
     func Day9() {
         let ropeSize = 10
         var rope: [[Int]] = Array(repeating: [0, 0], count: ropeSize)
