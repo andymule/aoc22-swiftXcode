@@ -14,7 +14,8 @@ import SwiftUI
 /// 􀆔+􀆕+P reloads preview if stopped
 class Mine {
     func run() {
-        Day11()
+        loadInput("day12")
+        pr(input)
     }
     public var str = ""
     public var input = "NO FILE LOADED"
