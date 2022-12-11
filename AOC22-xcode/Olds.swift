@@ -1,4 +1,101 @@
+import SwiftUI
+import Foundation
+
 extension Mine {
+    func Day11() {
+        func GCD(_ x: Int64, _ y: Int64) -> Int64 {
+            var a: Int64 = 0
+            var b: Int64 = max(x, y)
+            var r: Int64 = min(x, y)
+
+            while r != 0 {
+                a = b
+                b = r
+                r = a % b
+            }
+            return b
+        }
+
+        func LCM(_ x: Int64, _ y: Int64) -> Int64 {
+            return x / GCD(x, y) * y
+        }
+
+        class monkey {
+            let num: Int
+            var items: [Int64]
+            let operation: String //(Int64, Int64) -> Int64
+            let testDivisible: Int64 //(Int64) -> Bool
+            var testMap: [Bool: Int] = [:]
+            var inspected = 0
+            init(num: Int, start: [Int64], operation: String, testDivisible: Int64, testTrue: Int, testFalse: Int) {
+                self.num = num
+                self.items = start
+                self.operation = operation
+                self.testDivisible = testDivisible
+                testMap[true] = testTrue
+                testMap[false] = testFalse
+            }
+        }
+
+        //        var asd: vS1024
+
+
+        loadInput("day11")
+        let orders = input.components(separatedBy: "\n\n")
+        var monkeys: [Int: monkey] = [:]
+        var lcm: Int64 = 1
+        for order in orders {
+            let lines = order.components(separatedBy: "\n")
+            let mInt64 = Int(String(lines[0].components(separatedBy: " ")[1].dropLast()))!
+            let items = lines[1].components(separatedBy: ":")[1].components(separatedBy: ",").map { Int64($0.trimmingCharacters(in: .whitespaces))! }
+            var opers = lines[2].trimmingCharacters(in: .whitespaces).components(separatedBy: "=")[1].trimmingCharacters(in: .whitespaces)
+            //            pr(opers)
+            let ifDivBy = Int64(lines[3].components(separatedBy: " ").last!)!
+            lcm = LCM(lcm, ifDivBy)
+            //            pr(lcm)
+            let truThro = Int(lines[4].components(separatedBy: " ").last!)!
+            let falsThro = Int(lines[5].components(separatedBy: " ").last!)!
+            monkeys[mInt64] = monkey(num: mInt64, start: items, operation: opers, testDivisible: ifDivBy, testTrue: truThro, testFalse: falsThro)
+        }
+
+        //        let a: BigIn
+        //        var round = 1
+        //        pr(-24%23)
+        let rounds = 10000
+        for _ in 1...rounds {
+            for i in 0..<monkeys.count {
+                let monkey = monkeys[i]!
+                while !monkey.items.isEmpty {
+                    monkey.inspected += 1
+                    let old = monkey.items.popLast()!
+                    let oper = monkey.operation.components(separatedBy: " ")[1]
+                    let operInt64 = Int64(monkey.operation.components(separatedBy: " ")[2]) ?? old
+                    let args = String(old) + oper + String(operInt64)
+                    let expression = NSExpression(format: args)
+                    let value = Int64(exactly: expression.expressionValue(with: nil, context: nil) as! Int64)!
+                    //                    let newVal = value / 3
+                    var newVal = value % lcm /// 3
+                    //                    pr(round, monkey.num, newVal)
+                    let isDiv = (newVal % monkey.testDivisible) == 0
+                    //                    if isDiv {
+                    //                        newVal = value % monkey.testDivisible
+                    //                    }
+                    monkeys[monkey.testMap[isDiv]!]!.items.append(newVal)
+                }
+            }
+        }
+        for i in 0..<monkeys.count {
+            pr(i, monkeys[i]!.items)
+        }
+        for i in 0..<monkeys.count {
+            pr(i, monkeys[i]!.inspected)
+        }
+        var vals = monkeys.map({ $0.value.inspected }).sorted()
+        let monkeyB = vals.popLast()! * vals.popLast()!
+        pr(rounds, monkeyB)
+        print(rounds, monkeyB)
+    }
+
     func Day10() {
         loadInput("day10")
         var cycle = 1
@@ -10,7 +107,7 @@ extension Mine {
         //        var image = Array(repeating: ".", count: 240)
         //String(repeating: ".", count: 240)
         func inc(_ i: Int) {
-            if  [reg-1, reg, reg + 1].contains((cycle-1)%40) {
+            if [reg - 1, reg, reg + 1].contains((cycle-1) % 40) {
                 image += "#"
             } else {
                 image += "."
@@ -30,7 +127,7 @@ extension Mine {
             //            }
             //            pr(index, cycle, lines[index], i, reg)
         }
-        
+
         var jk = 0
         while cycle <= 240 {
             //        while index < lines.count {
@@ -60,13 +157,13 @@ extension Mine {
         pr(image[200..<240])
         //        pr(im)
     }
-    
+
     func Day9() {
         let ropeSize = 10
         var rope: [[Int]] = Array(repeating: [0, 0], count: ropeSize)
         var tailSet: Set<[Int]> = Set()
         loadInput("day9")
-        
+
         func moveTail(headIndex: Int, tailIndex: Int) {
             let totalDiff = abs(rope[tailIndex][0] - rope[headIndex][0]) + abs(rope[tailIndex][1] - rope[headIndex][1])
             if totalDiff >= 3 {
@@ -76,7 +173,7 @@ extension Mine {
                 rope[tailIndex][1] -= goY
                 return
             }
-            
+
             if abs(rope[tailIndex][0] - rope[headIndex][0]) > 1 {
                 let go = (rope[tailIndex][0] - rope[headIndex][0]).signum()
                 rope[tailIndex][0] -= go
@@ -86,7 +183,7 @@ extension Mine {
                 rope[tailIndex][1] -= go
             }
         }
-        
+
         tailSet.insert(rope.last!)
         let lines = input.components(separatedBy: .newlines)
         for l in lines {
@@ -114,7 +211,7 @@ extension Mine {
         }
         pr(2, ":", tailSet.count)
     }
-    
+
     func Day8() {
         class Tree {
             var visible: Bool = false

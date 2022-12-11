@@ -1,9 +1,12 @@
-import SwiftGraph
+//import SwiftGraph
 import SwiftUI
-import TextView
-import simd
+//import TextView
+//import simd
+//import VectorKit
+//import Accelerate
+//import BigNumber
 
-/// this command will print to terminal the output of the preview screen
+/// this command will prInt64 to terminal the output of the preview screen
 /// & should run in or your local active folder
 /// ~/Library/Developer/Xcode/UserData/Previews/Simulator\ Devices/53F099E6-21B0-4FE4-94CF-7BA756439400/data/Containers/Data/Application
 /// watch -n 0.1 find . -name "AOC.txt" -exec cat {} +
@@ -11,7 +14,7 @@ import simd
 /// 􀆔+􀆕+P reloads preview if stopped
 class Mine {
     func run() {
-        Day10()
+        Day11()
     }
     public var str = ""
     public var input = "NO FILE LOADED"
@@ -61,7 +64,7 @@ extension Mine {
     // write to file from previews? wow
     public func writeout(_ str: String)
     {
-//        print(str)
+//        prInt64(str)
         let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("AOC.txt")
         do {
             try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
@@ -72,8 +75,8 @@ extension Mine {
     }
 }
 
-/// split into tokens, parse into things
-// let items = lines[i].components(separatedBy: CharacterSet(charactersIn: " \t")).compactMap { Int($0) }
+/// split Int64o tokens, parse Int64o things
+// let items = lines[i].components(separatedBy: CharacterSet(charactersIn: " \t")).compactMap { Int64($0) }
 
 /// generate list of things using iterator and map
 // let aScalars = Character("a").asciiValue!

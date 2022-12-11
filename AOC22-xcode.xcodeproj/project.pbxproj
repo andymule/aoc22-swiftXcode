@@ -37,6 +37,8 @@
 		41460E6B29391F660053F70E /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 41460E6A29391F660053F70E /* TextView */; };
 		4168C6812943C9650084B681 /* day10.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4168C6802943C9650084B681 /* day10.txt */; };
 		416DE3CA293BF165003D77D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416DE3C9293BF165003D77D0 /* Extensions.swift */; };
+		4196BEAD2945B332001904F1 /* day11.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4196BEAC2945B332001904F1 /* day11.txt */; };
+		4196BEB029466934001904F1 /* BigNumber in Frameworks */ = {isa = PBXBuildFile; productRef = 4196BEAF29466934001904F1 /* BigNumber */; };
 		41C56E3C29386E6000EF8A28 /* Olds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C56E3B29386E6000EF8A28 /* Olds.swift */; };
 		41D05129293DB22D00430EAC /* day5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41D05128293DB22D00430EAC /* day5.txt */; };
 		41D0512B293DB9D100430EAC /* day6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 41D0512A293DB9D100430EAC /* day6.txt */; };
@@ -88,6 +90,7 @@
 		41378E762941B3260015D4A3 /* day9.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day9.txt; sourceTree = "<group>"; };
 		4168C6802943C9650084B681 /* day10.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day10.txt; sourceTree = "<group>"; };
 		416DE3C9293BF165003D77D0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4196BEAC2945B332001904F1 /* day11.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day11.txt; sourceTree = "<group>"; };
 		41C56E3B29386E6000EF8A28 /* Olds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Olds.swift; sourceTree = "<group>"; };
 		41D05128293DB22D00430EAC /* day5.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day5.txt; sourceTree = "<group>"; };
 		41D0512A293DB9D100430EAC /* day6.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = day6.txt; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4196BEB029466934001904F1 /* BigNumber in Frameworks */,
 				41FC1A962937156F00101C2C /* ComplexModule in Frameworks */,
 				41FC1A9D293715EE00101C2C /* SwiftGraph in Frameworks */,
 				41FC1A8F2937155D00101C2C /* Collections in Frameworks */,
@@ -213,6 +217,7 @@
 				41378E742941A5D10015D4A3 /* day8.txt */,
 				41378E762941B3260015D4A3 /* day9.txt */,
 				4168C6802943C9650084B681 /* day10.txt */,
+				4196BEAC2945B332001904F1 /* day11.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				41FC1A992937156F00101C2C /* RealModule */,
 				41FC1A9C293715EE00101C2C /* SwiftGraph */,
 				41460E6A29391F660053F70E /* TextView */,
+				4196BEAF29466934001904F1 /* BigNumber */,
 			);
 			productName = "AOC22-xcode";
 			productReference = 41FC1A772937124E00101C2C /* AOC22-xcode.app */;
@@ -278,6 +284,7 @@
 				41FC1A942937156F00101C2C /* XCRemoteSwiftPackageReference "swift-numerics" */,
 				41FC1A9B293715EE00101C2C /* XCRemoteSwiftPackageReference "SwiftGraph" */,
 				41460E6929391F660053F70E /* XCRemoteSwiftPackageReference "TextView" */,
+				4196BEAE29466934001904F1 /* XCRemoteSwiftPackageReference "Swift-BigInt" */,
 			);
 			productRefGroup = 41FC1A782937124E00101C2C /* Products */;
 			projectDirPath = "";
@@ -295,6 +302,7 @@
 			files = (
 				41FC1A822937124F00101C2C /* Preview Assets.xcassets in Resources */,
 				41FC1A9F2937BB0400101C2C /* day1.txt in Resources */,
+				4196BEAD2945B332001904F1 /* day11.txt in Resources */,
 				41D0512B293DB9D100430EAC /* day6.txt in Resources */,
 				41D3ADFD2937EBD200C99DDC /* day2.txt in Resources */,
 				41378E752941A5D10015D4A3 /* day8.txt in Resources */,
@@ -556,6 +564,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		4196BEAE29466934001904F1 /* XCRemoteSwiftPackageReference "Swift-BigInt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mkrd/Swift-BigInt";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		41FC1A8A2937154600101C2C /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-algorithms.git";
@@ -595,6 +611,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 41460E6929391F660053F70E /* XCRemoteSwiftPackageReference "TextView" */;
 			productName = TextView;
+		};
+		4196BEAF29466934001904F1 /* BigNumber */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4196BEAE29466934001904F1 /* XCRemoteSwiftPackageReference "Swift-BigInt" */;
+			productName = BigNumber;
 		};
 		41FC1A8B2937154600101C2C /* Algorithms */ = {
 			isa = XCSwiftPackageProductDependency;
