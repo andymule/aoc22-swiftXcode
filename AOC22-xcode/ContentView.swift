@@ -31,15 +31,15 @@ class Mine {
             }
             func near(_ nextp: Point) -> Bool {
                 let nextpx = nextp.h
-                return nextpx == h || nextpx == h + 1 //|| nextpx == h - 1 //||
+                return nextpx == h || nextpx == h + 1 // || nextpx == h - 1 //||
             }
             func hash(into hasher: inout Hasher) {
-                hasher.combine(point[0] * 100)
+                hasher.combine(point[0])
                 hasher.combine(point[1])
             }
         }
 
-        var graph: UnweightedGraph<String> = .init()
+        var graph: WeightedGraph<Point, Int> = .init()
 //        var graph: Graph<[Point], Int> = .init()
 //        graph.vertices.insert(contentsOf: <#T##C#>, at: <#T##Self.Index#>)
         loadInput("day12")
@@ -59,7 +59,7 @@ class Mine {
                     newP.endPoint = true
                 }
                 map[[y, x]] = newP
-                newP.graphI = graph.addVertex(newP.pointS)
+                newP.graphI = graph.addVertex(newP)
 //                pr(newP.pointS,newP.point,newP.graphI,newP.h,newP.startPoint || newP.endPoint)
 //                pr(newP.pointS)
 //                pr(xxx)
@@ -75,26 +75,26 @@ class Mine {
                     let thatP = map[[y - 1, x]]!
                     if thisP.near(thatP) {
 
-                        graph.addEdge(from: thisP.pointS, to: thatP.pointS)//, weight: thatP.h - thisP.h)
+                        graph.addEdge(from: thisP, to: thatP, weight: thatP.h - thisP.h)
 //                        graph.add
                     }
                 }
                 if y < lines.count - 1 {
                     let thatP = map[[y + 1, x]]!
                     if thisP.near(thatP) {
-                        graph.addEdge(from: thisP.pointS, to: thatP.pointS)//, weight: thatP.h - thisP.h)
+                        graph.addEdge(from: thisP, to: thatP, weight: thatP.h - thisP.h)
                     }
                 }
                 if x > 1 {
                     let thatP = map[[y, x - 1]]!
                     if thisP.near(thatP) {
-                        graph.addEdge(from: thisP.pointS, to: thatP.pointS)//, weight: thatP.h - thisP.h)
+                        graph.addEdge(from: thisP, to: thatP, weight: thatP.h - thisP.h)
                     }
                 }
                 if x < line.count - 1 {
                     let thatP = map[[y, x + 1]]!
                     if thisP.near(thatP) {
-                        graph.addEdge(from: thisP.pointS, to: thatP.pointS)//, weight: thatP.h - thisP.h)
+                        graph.addEdge(from: thisP, to: thatP, weight: thatP.h - thisP.h)
                     }
                 }
             }
@@ -110,18 +110,22 @@ class Mine {
 //            pr(g)
 //        }
 
-//        let (distances, pathDict) = graph.dijkstra(root: startP.pointS, startDistance: 1)
-        var a = graph.indexOfVertex(startP.pointS)!
-        var b = graph.indexOfVertex(endP.pointS)!
+        let (distances, pathDict) = graph.dijkstra(root: startP, startDistance: 1)
+        pr(distances)
+        pr(pathDict)
+        var a = graph.indexOfVertex(startP)!
+        var b = graph.indexOfVertex(endP)!
         pr(a, b)
         let g = graph.distance(from: a, to: b)
         let g2 = graph.dfs(fromIndex: a, toIndex: b)
         pr(g, g2)
-//        var nameDistance: [String: Int?] = distanceArrayToVertexDict(distances: distances, graph: graph)
+        var nameDistance = distanceArrayToVertexDict(distances: distances, graph: graph)
+        let asd = pathDict[endP.graphI]
+        
 //        pr(nameDistance)
 //        // shortest distance from New York to San Francisco
 //        let temp = nameDistance[endP.pointS] //map[[0,2]]!.pointS]!
-//        pr(temp)
+        pr(asd)
 //        // path between New York and San Francisco
 //        let path: [WeightedEdge<Int>] = pathDictToPath(from: graph.indexOfVertex(startP.pointS)!, to: graph.indexOfVertex(startP.pointS)!, pathDict: pathDict)
 //        let stops: [String] = graph.edgesToVertices(edges: path)
